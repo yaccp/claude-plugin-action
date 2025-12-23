@@ -1,0 +1,69 @@
+flowchart TB
+    subgraph START["1. START"]
+        S1["Run /yaccp-action"]
+    end
+
+    subgraph MENU["2. MENU"]
+        M1["Show Options"]
+        M2{"User Choice"}
+    end
+
+    subgraph BROWSE["Browse"]
+        B1["Fetch Marketplace"]
+        B2["Display by Category"]
+        B3["Select Plugin"]
+    end
+
+    subgraph INSTALL["Install"]
+        I1["Show Available"]
+        I2["Select Plugin"]
+        I3["Run: claude plugin add"]
+        I4["Show Commands"]
+    end
+
+    subgraph UPDATE["Update"]
+        U1["Check Versions"]
+        U2["Show Updates"]
+        U3["Run: claude plugin update"]
+    end
+
+    subgraph REMOVE["Remove"]
+        R1["Show Installed"]
+        R2["Confirm Removal"]
+        R3["Run: claude plugin remove"]
+    end
+
+    subgraph LAUNCH["Launch"]
+        L1["List Plugins"]
+        L2["Select Plugin"]
+        L3["Select Command"]
+        L4["Execute"]
+    end
+
+    START --> MENU
+    M1 --> M2
+    M2 -->|"Browse"| BROWSE
+    M2 -->|"Install"| INSTALL
+    M2 -->|"Update"| UPDATE
+    M2 -->|"Remove"| REMOVE
+    M2 -->|"Launch"| LAUNCH
+
+    B1 --> B2 --> B3
+    I1 --> I2 --> I3 --> I4
+    U1 --> U2 --> U3
+    R1 --> R2 --> R3
+    L1 --> L2 --> L3 --> L4
+
+    B3 --> MENU
+    I4 --> MENU
+    U3 --> MENU
+    R3 --> MENU
+    L4 --> MENU
+
+    style START fill:#e1f5fe,stroke:#01579b
+    style MENU fill:#fff3e0,stroke:#e65100
+    style BROWSE fill:#e8f5e9,stroke:#1b5e20
+    style INSTALL fill:#f3e5f5,stroke:#7b1fa2
+    style UPDATE fill:#fff8e1,stroke:#f9a825
+    style REMOVE fill:#ffebee,stroke:#c62828
+    style LAUNCH fill:#e8eaf6,stroke:#3f51b5

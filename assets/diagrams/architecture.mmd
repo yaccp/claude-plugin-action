@@ -1,0 +1,41 @@
+flowchart TB
+    USER["User"]
+
+    subgraph ACTION["YACCP Action"]
+        HUB["Plugin Hub"]
+        MENU["Main Menu"]
+    end
+
+    subgraph MARKET["Marketplace"]
+        REGISTRY["Plugin Registry"]
+        PLUGINS["Available Plugins"]
+    end
+
+    subgraph LOCAL["Local System"]
+        INSTALLED["Installed Plugins"]
+        CONFIG["Configuration"]
+    end
+
+    subgraph COMMANDS["Plugin Commands"]
+        CMD1["/plugin:command1"]
+        CMD2["/plugin:command2"]
+        CMD3["/plugin:command3"]
+    end
+
+    USER -->|"/yaccp-action"| HUB
+    HUB --> MENU
+    MENU -->|"Browse"| REGISTRY
+    MENU -->|"Install"| PLUGINS
+    MENU -->|"Update"| INSTALLED
+    MENU -->|"Remove"| INSTALLED
+    MENU -->|"Launch"| COMMANDS
+    REGISTRY --> PLUGINS
+    PLUGINS -->|"Install"| INSTALLED
+    INSTALLED --> CONFIG
+    INSTALLED --> COMMANDS
+
+    style USER fill:#e3f2fd,stroke:#1565c0
+    style ACTION fill:#fff3e0,stroke:#e65100
+    style MARKET fill:#e8f5e9,stroke:#2e7d32
+    style LOCAL fill:#fce4ec,stroke:#c2185b
+    style COMMANDS fill:#e8eaf6,stroke:#3f51b5

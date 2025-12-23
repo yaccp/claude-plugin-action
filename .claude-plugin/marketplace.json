@@ -1,0 +1,27 @@
+{
+  "name": "yaccp-action",
+  "description": "Central hub for discovering, installing and launching YACCP plugins",
+  "owner": {
+    "name": "Cyril Feraudet",
+    "url": "https://github.com/feraudet"
+  },
+  "metadata": {
+    "version": "1.0.0",
+    "license": "Apache-2.0",
+    "repository": "https://github.com/yaccp/claude-plugin-action",
+    "keywords": ["yaccp", "plugins", "hub", "launcher", "manager"],
+    "category": "productivity"
+  },
+  "plugins": [
+    {
+      "name": "yaccp-action",
+      "source": "./",
+      "description": "Central hub for discovering, installing and launching YACCP plugins",
+      "version": "1.0.0",
+      "author": { "name": "Cyril Feraudet" },
+      "license": "Apache-2.0",
+      "keywords": ["yaccp", "plugins", "hub", "launcher"],
+      "category": "productivity"
+    }
+  ]
+}
