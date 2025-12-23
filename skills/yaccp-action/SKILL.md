@@ -63,14 +63,24 @@ https://raw.githubusercontent.com/yaccp/marketplace/main/.claude-plugin/marketpl
 - **testing** - Testing and validation tools
 - **security** - Security scanning and auditing
 
-## Plugin Management Commands
+## Plugin Management
 
-The skill uses Claude Code's built-in plugin management:
+### Check Installed Plugins (Fast)
+
+Read directly from local cache for instant results:
 
 ```bash
-# List installed plugins
-claude plugins list
+cat ~/.claude/plugins/installed_plugins.json
+```
 
+Filter YACCP plugins (keys ending with `@yaccp`):
+```bash
+cat ~/.claude/plugins/installed_plugins.json | jq -r '.plugins | to_entries[] | select(.key | endswith("@yaccp")) | "\(.key):\(.value[0].version)"'
+```
+
+### CLI Commands
+
+```bash
 # Install a plugin
 claude plugin add yaccp/<plugin-name>
 

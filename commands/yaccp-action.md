@@ -24,10 +24,20 @@ Parse the JSON to extract the plugins array.
 
 ### Step 2: Check Installed Plugins
 
-List currently installed plugins:
+Read installed plugins from local cache (fast, no CLI call):
 
 ```bash
-claude plugins list 2>/dev/null || echo "[]"
+cat ~/.claude/plugins/installed_plugins.json 2>/dev/null
+```
+
+Parse the JSON to extract YACCP plugins (keys ending with `@yaccp`):
+- Extract plugin name and version from the `plugins` object
+- Filter for keys matching `*@yaccp` pattern
+- Get version from each plugin's `version` field
+
+Example parsing with jq:
+```bash
+cat ~/.claude/plugins/installed_plugins.json | jq -r '.plugins | to_entries[] | select(.key | endswith("@yaccp")) | "\(.key):\(.value[0].version)"'
 ```
 
 ### Step 3: Display Menu
