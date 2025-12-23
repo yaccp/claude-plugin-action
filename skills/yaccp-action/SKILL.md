@@ -78,18 +78,22 @@ Filter YACCP plugins (keys ending with `@yaccp`):
 cat ~/.claude/plugins/installed_plugins.json | jq -r '.plugins | to_entries[] | select(.key | endswith("@yaccp")) | "\(.key):\(.value[0].version)"'
 ```
 
-### CLI Commands
+### CLI Commands (Manual Execution Required)
+
+These commands must be run manually by the user in the terminal. Claude cannot execute them in batch mode.
 
 ```bash
 # Install a plugin
-claude plugin add yaccp/<plugin-name>
+claude plugin add yaccp/claude-plugin-<name>
 
 # Update a plugin
-claude plugin update yaccp/<plugin-name>
+claude plugin update yaccp/claude-plugin-<name>
 
 # Remove a plugin
-claude plugin remove yaccp/<plugin-name>
+claude plugin remove yaccp/claude-plugin-<name>
 ```
+
+**Note:** After running any of these commands, restart Claude Code to see the changes.
 
 ## Example Interactions
 

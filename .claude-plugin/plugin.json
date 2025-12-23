@@ -1,6 +1,6 @@
 {
   "name": "yaccp-action",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Central hub for discovering, installing and launching YACCP plugins",
   "author": {
     "name": "Cyril Feraudet",

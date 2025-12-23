@@ -91,24 +91,18 @@ Use AskUserQuestion to select which plugin to install:
 
 Show available (not yet installed) plugins as options.
 
-Then run:
-```bash
-claude plugin add yaccp/<plugin-repo-name>
+**IMPORTANT:** Plugin installation requires user action in the terminal. Claude cannot execute `claude plugin add` in batch mode.
+
+Display the command for the user to run manually:
+```
+To install this plugin, run this command in your terminal:
+
+  claude plugin add yaccp/claude-plugin-<name>
+
+After installation, restart Claude Code or run /yaccp-action:yaccp-action to see the new plugin.
 ```
 
-Show success message:
-```
-Plugin Installed!
-=================
-
-✓ yaccp-<plugin-name> v1.0.0 installed
-
-Available commands:
-- /<plugin>:<plugin>-command1
-- /<plugin>:<plugin>-command2
-
-To launch: /yaccp-action:yaccp-action → "Launch a plugin"
-```
+Do NOT attempt to run `claude plugin add` - it will fail in non-interactive mode.
 
 #### Update Plugins
 
@@ -129,12 +123,19 @@ yaccp-roadmap-generator   v1.0.1       v1.0.1       ✓ Up to date
 If updates available, ask:
 **Question:** "Which plugins would you like to update?"
 - Show plugins with updates as multiSelect options
-- "Update all" option
 
-Run for each selected:
-```bash
-claude plugin update yaccp/<plugin-name>
+**IMPORTANT:** Plugin updates require user action in the terminal. Claude cannot execute `claude plugin update` in batch mode.
+
+Display the commands for the user to run manually:
 ```
+To update these plugins, run these commands in your terminal:
+
+  claude plugin update yaccp/claude-plugin-aws-docusaurus
+
+After updating, restart Claude Code to use the new version.
+```
+
+Do NOT attempt to run `claude plugin update` - it will fail in non-interactive mode.
 
 #### Remove a Plugin
 
@@ -149,10 +150,18 @@ Confirm with:
 - "Yes, remove it"
 - "No, cancel"
 
-Then run:
-```bash
-claude plugin remove yaccp/<plugin-name>
+**IMPORTANT:** Plugin removal requires user action in the terminal. Claude cannot execute `claude plugin remove` in batch mode.
+
+Display the command for the user to run manually:
 ```
+To remove this plugin, run this command in your terminal:
+
+  claude plugin remove yaccp/claude-plugin-<name>
+
+After removal, restart Claude Code.
+```
+
+Do NOT attempt to run `claude plugin remove` - it will fail in non-interactive mode.
 
 #### Launch a Plugin
 
